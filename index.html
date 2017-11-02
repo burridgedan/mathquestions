@@ -1,0 +1,98 @@
+﻿<html>
+<head>
+    <title>Math Questions</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <select name="operations" onchange="updateOperation(this.value)">
+		<option value="times">Multiplication</option>
+		<option value="divide">Division</option>
+		<option value="plus">Addition</option>
+		<option value="subtract">Subtraction</option>
+	</select>
+	
+	<br><br>
+	<input id="operationButton" type="button" value="Confirm" onclick="onClickButton(2)">
+	
+	<p id="questionText"></p>
+    <input id="answerText" type="text" disabled /><br />
+    <input id="answerButton" type="button" value="Check" onclick="onClickButton(1)" disabled />
+    <p id="answerComment"></p>
+	
+	<p><a href="https://danburridge.me/projects/mathquestions/changelog.html">Update log</a></p>
+</body>
+</html>
+
+<script language="javascript">
+	/*
+	*	(C) Copyright Daniel Burridge 2017
+	*/
+
+    // declare the variables outside of other functions so all functions can access it.
+	var answer;
+	var operation;
+	var e = document.getElementById("operations");
+
+    function onClickButton(buttonid) {
+        switch (buttonid) {
+			case 1:
+				document.getElementById("answerText").disabled = true; // disable the answer box.
+
+				if(answerText.value == answer) { // the text must equal the correct answer from above
+					answerComment.innerText = "Your answer is correct! Loading next question.";
+					setTimeout(setQuestion, 2000); // in two seconds call the setQuestion function
+				} 
+				else { // else it is the wrong answer
+					answerComment.innerText = "Sorry, the correct answer was: " + answer + " Loading next question.";
+					setTimeout(setQuestion, 2000); // in two seconds call the setQuestion function
+				}
+				break;
+			case 2:
+				document.getElementById("answerButton").disabled = false;
+				document.getElementById("answerText").disabled = false;
+				setQuestion();
+				break;
+		}
+    }
+	
+	function setQuestion() {
+		// variables needed for randomized questions
+        // generate two random numbers, random decimal then multiplyed by a set amount to get a whole number
+        var number1 = Math.floor(Math.random() * 30);
+        var number2 = Math.floor(Math.random() * 20);
+
+        questionText.innerText = "What is " + number1 + " " + operation + " " + number2 + "?";
+		switch (operation) {
+			case "times":
+				answer = number1 * number2; // times the two togther to get the answer
+				answer = round(answer, 1);
+				break;
+			case "divide":
+				answer = number1 / number2; // divide the two togther to get the answer
+				answer = round(answer, 1);
+				break;
+			case "plus":
+				answer = number1 + number2; // add the two togther to get the answer
+				break;
+			case "subtract":
+				answer = number1 - number2; // subtract the two togther to get the answer
+				break;
+		}
+		
+		document.getElementById("answerText").disabled = false; // enable the answer box.
+		document.getElementById('answerText').value = '';
+		answerComment.innerText = "";
+	}
+	
+	function updateOperation(newop) {
+		operation = newop;
+	}
+	
+	/*
+	*	Credit to Billy Moon: https://stackoverflow.com/a/7343013
+	*/
+	function round(value, precision) {
+		var multiplier = Math.pow(10, precision || 0);
+		return Math.round(value * multiplier) / multiplier;
+	}
+</script>
