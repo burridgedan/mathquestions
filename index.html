@@ -1,25 +1,26 @@
 ﻿<html>
-<head>
-    <title>Math Questions</title>
-    <meta charset="utf-8" />
-</head>
-<body>
-    <select name="operations" onchange="updateOperation(this.value)">
-		<option value="times">Multiplication</option>
-		<option value="divide">Division</option>
-		<option value="plus">Addition</option>
-		<option value="subtract">Subtraction</option>
-	</select>
+    <head>
+        <title>Math Questions</title>
+        <meta charset="utf-8" />
+    </head>
 
-	<br><br>
-	<input id="operationButton" type="button" value="Confirm" onclick="onClickButton(2)">
+    <body>
+        <select name="operations" onchange="updateOperation(this.value)">
+            <option value="times">Multiplication</option>
+            <option value="divide">Division</option>
+            <option value="plus">Addition</option>
+            <option value="subtract">Subtraction</option>
+        </select>
 
-	<p id="questionText"></p>
-    <input id="answerText" type="text" disabled /><br />
-    <input id="answerButton" type="button" value="Check" onclick="onClickButton(1)" disabled />
-    <p id="answerComment"></p>
+        <br><br>
+        <input id="operationButton" type="button" value="Confirm" onclick="onClickButton(2)">
 
-	<p><a href="https://danburridge.me/projects/mathquestions/changelog.html">Update log</a></p>
-</body>
+        <p id="questionText"></p>
+        <input id="answerText" type="text" disabled /><br />
+        <input id="answerButton" type="button" value="Check" onclick="onClickButton(1)" disabled />
+        <p id="answerComment"></p>
+
+        <p><a href="https://danburridge.me/projects/mathquestions/changelog.html">Update log</a></p>
+    </body>
 </html>
 <script src="/script.js"></script>
