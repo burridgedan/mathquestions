@@ -1,26 +1,40 @@
 ﻿<html>
-    <head>
-        <title>Math Questions</title>
-        <meta charset="utf-8" />
-    </head>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
+		<title>Math Questions</title>
+
+		<link rel="stylesheet" href="style.css">
+		
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	
+  	<header>
+		<h1>Math Questions</h1>
+	</header>
+		
     <body>
-        <select name="operations" onchange="updateOperation(this.value)">
-            <option value="times">Multiplication</option>
-            <option value="divide">Division</option>
-            <option value="plus">Addition</option>
-            <option value="subtract">Subtraction</option>
-        </select>
+		<div class="main_page">
+			<select name="operations" onchange="updateOperation(this.value)">
+				<option value="times">Multiplication</option>
+				<option value="divide">Division</option>
+				<option value="plus">Addition</option>
+				<option value="subtract">Subtraction</option>
+        	</select>
 
-        <br><br>
-        <input id="operationButton" type="button" value="Confirm" onclick="onClickButton(2)">
+        	<br>
+        	<input id="operationButton" type="button" value="Confirm" onclick="onClickButton(2)">
 
-        <p id="questionText"></p>
-        <input id="answerText" type="text" disabled /><br />
-        <input id="answerButton" type="button" value="Check" onclick="onClickButton(1)" disabled />
-        <p id="answerComment"></p>
+			<p id="questionText"></p>
+			<input id="answerText" type="text" disabled /><br />
+			<input id="answerButton" type="button" value="Check" onclick="onClickButton(1)" disabled />
+			<p id="answerComment"></p>
 
-        <p><a href="https://danburridge.me/projects/mathquestions/changelog.html">Update log</a></p>
+			<p><a href="https://danburridge.me/projects/mathquestions/changelog.html">Update log</a></p>
+		</div>
     </body>
+
+    <footer>
+        <p>Copyright &copy; Daniel Burridge 2017</p>
+    </footer>
 </html>
-<script src="/script.js"></script>

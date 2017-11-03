@@ -1,6 +1,6 @@
 /*
 *	(C) Copyright Daniel Burridge 2017
-* v0.1.2
+*   v0.1.2
 */
 
 // declare the variables outside of other functions so all functions can access it.
