@@ -1,6 +1,6 @@
 /*
 *	(C) Copyright Daniel Burridge 2017
-*   v0.1.2
+*   v0.1.4
 */
 
 // declare the variables outside of other functions so all functions can access it.
@@ -14,10 +14,12 @@ function onClickButton(buttonid) {
 
             if(answerText.value == answer) { // the text must equal the correct answer from above
                 answerComment.innerText = "Your answer is correct! Loading next question.";
+				document.getElementById("operationButton").disabled = true;
                 setTimeout(setQuestion, 2000); // in two seconds call the setQuestion function
             }
             else { // else it is the wrong answer
                 answerComment.innerText = "Sorry, the correct answer was: " + answer + " Loading next question.";
+				document.getElementById("operationButton").disabled = true;
                 setTimeout(setQuestion, 2000); // in two seconds call the setQuestion function
             }
             break;
@@ -53,6 +55,7 @@ function setQuestion() {
             break;
     }
     document.getElementById("answerText").disabled = false; // enable the answer box.
+	document.getElementById("operationButton").disabled = false; // enable the drop down menu button again
     document.getElementById('answerText').value = '';
     answerComment.innerText = "";
 }
