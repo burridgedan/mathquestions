@@ -1,23 +1,31 @@
-/*
-*	(C) Copyright Daniel Burridge 2017
-*   v0.1.4
-*/
+/* 
+ * v0.2.0
+ *
+ * (C) 2017 - 2018 Daniel Burridge
+ * You may use, distribute and modify this code under the
+ * terms of the MIT license which should be provided with this software.
+ * 
+ */
 
 // declare the variables outside of other functions so all functions can access it.
 var answer;
 var operation = "times";
 
-function onClickButton(buttonid) {
-    switch (buttonid) {
-        case 1:
+function onClickButton(buttonid) 
+{
+    switch (buttonid) 
+    {
+        case 1: // 
             document.getElementById("answerText").disabled = true; // disable the answer box.
 
-            if(answerText.value == answer) { // the text must equal the correct answer from above
+            if(answerText.value == answer)  // the text must equal the correct answer from above
+            {
                 answerComment.innerText = "Your answer is correct! Loading next question.";
 				document.getElementById("operationButton").disabled = true;
                 setTimeout(setQuestion, 2000); // in two seconds call the setQuestion function
             }
-            else { // else it is the wrong answer
+            else // else it is the wrong answer
+            {
                 answerComment.innerText = "Sorry, the correct answer was: " + answer + " Loading next question.";
 				document.getElementById("operationButton").disabled = true;
                 setTimeout(setQuestion, 2000); // in two seconds call the setQuestion function
@@ -31,21 +39,28 @@ function onClickButton(buttonid) {
     }
 }
 
-function setQuestion() {
+function setQuestion() 
+{
     // variables needed for randomized questions
     // generate two random numbers, random decimal then multiplyed by a set amount to get a whole number
     var number1 = Math.floor(Math.random() * 30);
     var number2 = Math.floor(Math.random() * 20);
 
+    if(number2 == 0 && operation == "divide") // cannot divide by 0
+    {
+        number2 = Math.floor(Math.random() * 20); // generate a new number
+    }
+
     questionText.innerText = "What is " + number1 + " " + operation + " " + number2 + "?";
-    switch (operation) {
+    switch (operation) 
+    {
         case "times":
             answer = number1 * number2; // times the two togther to get the answer
-            answer = round(answer, 1);
+            answer = round(answer, 2);
             break;
         case "divide":
             answer = number1 / number2; // divide the two togther to get the answer
-            answer = round(answer, 1);
+            answer = round(answer, 2);
             break;
         case "plus":
             answer = number1 + number2; // add the two togther to get the answer
@@ -60,14 +75,16 @@ function setQuestion() {
     answerComment.innerText = "";
 }
 
-function updateOperation(newop) {
+function updateOperation(newop) 
+{
     operation = newop;
 }
 
 /*
 *	Credit to Billy Moon: https://stackoverflow.com/a/7343013
 */
-function round(value, precision) {
+function round(value, precision) 
+{
     var multiplier = Math.pow(10, precision || 0);
     return Math.round(value * multiplier) / multiplier;
 }

@@ -4,37 +4,61 @@
 
 		<title>Math Questions</title>
 
-		<link rel="stylesheet" href="style.css">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		
 		<script type="text/javascript" src="script.js"></script>
 	</head>
 	
-  	<header>
-		<h1>Math Questions</h1>
+	<header>
+		<h1 class="display-4"><p class="text-center">Math Questions</p></h1>
 	</header>
 		
     <body>
-		<div class="main_page">
-			<select name="operations" onchange="updateOperation(this.value)">
-				<option value="times">Multiplication</option>
-				<option value="divide">Division</option>
-				<option value="plus">Addition</option>
-				<option value="subtract">Subtraction</option>
-        	</select>
+		<div class="container">
+			<div class="jumbotron">
+				<form>
+					<label class="radio-inline">
+						<input type="radio" name="optradio" value="times" onchange="updateOperation(this.value)" checked>Multiplication
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="optradio" value="divide" onchange="updateOperation(this.value)">Division
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="optradio" value="plus" onchange="updateOperation(this.value)">Addition
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="optradio" value="subtract" onchange="updateOperation(this.value)">Subtraction
+					</label>
+				</form>
+				<button id="operationButton" class="btn btn-primary" onclick="onClickButton(2)">Set Question</button>
+				
+				<hr />
 
-        	<br>
-        	<input id="operationButton" type="button" value="Confirm" onclick="onClickButton(2)">
+				<h4 id="questionText"></h4>
+				
 
-			<p id="questionText"></p>
-			<input id="answerText" type="text" disabled /><br />
-			<input id="answerButton" type="button" value="Check" onclick="onClickButton(1)" disabled />
-			<p id="answerComment"></p>
+				<form class="form-inline">
+					<label class="sr-only" for="inlineFormInputName2">Answer</label>
+					<input id="answerText" type="text" class="form-control mb-2 mr-sm-2" disabled>					
+				</form>
+				<button id="answerButton" type="submit" class="btn btn-primary mb-2" value="Check" onclick="onClickButton(1)" disabled>Check Answer</button>
 
-			<p><a href="https://danburridge.me/projects/mathquestions/changelog.html">Update log</a></p>
+				<h4 id="answerComment"></h4>
+			</div>
 		</div>
+
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 
-    <footer>
-        <p>Copyright &copy; Daniel Burridge 2017</p>
-    </footer>
+    <footer class="footer">
+		<div class="container">
+			<span class="text-muted"><p class="text-center">v0.2.0 | <a href="https://dburridge.com/projects/mathquestions/changelog.html">Update log</a></p></span>
+			<span class="text-muted"><p class="text-center">&copy; 2017 - 2018 Daniel Burridge</p></span>
+		</div>
+	</footer>
 </html>
